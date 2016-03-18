@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class HocVien {
@@ -67,25 +69,45 @@ public class HocVien {
 		String path  = "/Users/Hoang/Documents/Eclipse/workspace/ak221/src/test1803/ak221/output.txt";
 		FileReader fileReader = new FileReader(path);
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
-	
-		int count = 0;
-		while((i=bufferedReader.readLine())!=null){
-			count++;
+		
+		ArrayList<String> danhSach = new ArrayList<String>();
+		String str;
+		while((str=bufferedReader.readLine())!=null){
+			danhSach.add(str);
 		}
 		
-		if(count==0){
+		if(danhSach.get(0)==null){
 			System.out.println("Danh sach rong.");
 		}else{
-			String[] danhSach = new String[count];
 			
+//			System.out.println(danhSach.toString());
+			System.out.println("Danh sach hoc vien: ");
+			System.out.println("--------------------");
+			String[] tmp;
+			String ms, ht, ns, em, dc, dt;
+			for (String hv : danhSach) {
+				tmp = hv.split(";");
+				ms = tmp[0].split(":")[1];
+				ht = tmp[1].split(":")[1];
+				ns = tmp[2].split(":")[1];
+				em = tmp[3].split(":")[1];
+				dc = tmp[4].split(":")[1];
+				dt = tmp[5].split(":")[1];
+				System.out.println("Ma so: "+ms);
+				System.out.println("Ho ten: "+ht);
+				System.out.println("Ngay sinh: "+ns);
+				System.out.println("Email: "+em);
+				System.out.println("Dia chi: "+dc);
+				System.out.println("So dien thoai: "+dt);
+				System.out.println("--------------------");
+			}
 		}
-		
-		
 		
 		bufferedReader.close();
 	}
 	
 	public static void main(String[] args) throws IOException {
 		HocVien.themHocVien();
+		HocVien.xemDanhSachLop();
 	}
 }
