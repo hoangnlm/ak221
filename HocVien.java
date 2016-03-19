@@ -12,10 +12,6 @@ public class HocVien {
 	private static String maSo, ten, ngaySinh, email, diaChi, sodt;
 	private static Scanner s = new Scanner(System.in);
 
-	public HocVien() {
-
-	}
-
 	public static void themHocVien() throws IOException {
 		System.out.println("----------------------");
 		System.out.println("Them hoc vien: ");
@@ -60,43 +56,38 @@ public class HocVien {
 	} 
 
 	public static void xoaHocVien() throws IOException {
-//		System.out.println("Nhap ma so can xoa: ");
-//		String maSo = s.nextLine().trim().toUpperCase();
+		System.out.println("Nhap ma so can xoa: ");
+		String maSo = s.nextLine().trim().toUpperCase();
 		
 		String path  = "/Users/Hoang/Documents/Eclipse/workspace/ak221/src/test1803/ak221/output.txt";
 		FileReader fileReader = new FileReader(path);
-//		FileWriter fileWriter = new FileWriter(path);
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
-//		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 		
 		ArrayList<String> danhSach = new ArrayList<String>();
 		String str;
 		while((str=bufferedReader.readLine())!=null){
-			System.out.println(str);
 			danhSach.add(str);
 		}
-		System.out.println(danhSach.toString());
-//		if(danhSach.get(0)==null){
-//			System.out.println("Danh sach rong. Khong co gi de xoa!");
-//		}else{
-//			System.out.println(danhSach.toString());
-//			for (int i = 0; i < danhSach.size(); i++) {
-//				if(danhSach.get(i).contains(maSo)){
-//					System.out.println(danhSach.get(i));
-////					danhSach.remove(i);
-//				}
-//			}
-//			danhSach.trimToSize();
-//			System.out.println(danhSach.toString());
-////			for (int i = 0; i < danhSach.size(); i++) {
-////				bufferedWriter.write(danhSach.get(i));
-////				bufferedWriter.newLine();
-////			}
-//		}
 		
+		if(danhSach.toString().equals("[]")){
+			System.out.println("Danh sach rong. Khong co gi de xoa!");
+		}else{
+			for (int i = 0; i < danhSach.size(); i++) {
+				if(danhSach.get(i).contains(maSo)){
+					danhSach.remove(i);
+				}
+			}
+
+			FileWriter fileWriter = new FileWriter(path);
+			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+			for (int i = 0; i < danhSach.size(); i++) {
+				bufferedWriter.write(danhSach.get(i));
+				bufferedWriter.newLine();
+			}
+			bufferedWriter.close();
+		}
 		
 		bufferedReader.close();
-//		bufferedWriter.close();
 	}
 	
 	public static void xemDanhSachLop() throws IOException{
@@ -141,6 +132,21 @@ public class HocVien {
 	public static void main(String[] args) throws IOException {
 //		HocVien.themHocVien();
 //		HocVien.xemDanhSachLop();
-		HocVien.xoaHocVien();
+//		HocVien.xoaHocVien();
+		
 	}
+}
+
+class Test1{
+	int t1, t2, t3;
+	public Test1() {
+		// TODO Auto-generated constructor stub
+	}
+	public Test1(int t1, int t2, int t3) {
+		super();
+		this.t1 = t1;
+		this.t2 = t2;
+		this.t3 = t3;
+	}
+	
 }
