@@ -133,20 +133,5 @@ public class HocVien {
 //		HocVien.themHocVien();
 //		HocVien.xemDanhSachLop();
 //		HocVien.xoaHocVien();
-		
 	}
-}
-
-class Test1{
-	int t1, t2, t3;
-	public Test1() {
-		// TODO Auto-generated constructor stub
-	}
-	public Test1(int t1, int t2, int t3) {
-		super();
-		this.t1 = t1;
-		this.t2 = t2;
-		this.t3 = t3;
-	}
-	
 }
