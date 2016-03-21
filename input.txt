@@ -1,4 +1,9 @@
 Thu lai..test
+<<<<<<< HEAD
 Thêm tiếng Vịt vào này....sua dong nay!
+=======
+Sua dong nay!
+>>>>>>> test
 Dong moi
+Moi thu 2
 /Users/Hoang/Documents/Eclipse/workspace/ak221/src/input.txt
